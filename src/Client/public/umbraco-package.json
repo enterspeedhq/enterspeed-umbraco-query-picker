@@ -1,0 +1,14 @@
+{
+  "id": "Enterspeed.Umbraco.QueryPicker",
+  "name": "Enterspeed.Umbraco.QueryPicker",
+  "version": "0.0.0",
+  "allowPackageTelemetry": true,
+  "extensions": [
+    {
+      "name": "Enterspeed Query Picker",
+      "alias": "Enterspeed.Umbraco.QueryPicker.Bundle",
+      "type": "bundle",
+      "js": "/App_Plugins/EnterspeedUmbracoQueryPicker/enterspeed-umbraco-query-picker.js"
+    }
+  ]
+}
