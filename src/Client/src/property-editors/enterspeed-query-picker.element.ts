@@ -81,8 +81,8 @@ export default class EnterspeedQueryPickerPropertyEditorUIElement extends UmbEle
       };
 
       query.filters[this._enterspeedQueryField] = {
-        operator: "equals",
-        value: this._queryValue
+        operator: "contains",
+        value: `*${this._queryValue}*`
       };
 
       (async () => {

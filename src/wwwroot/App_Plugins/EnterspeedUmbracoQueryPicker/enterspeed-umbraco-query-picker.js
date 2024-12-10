@@ -3,7 +3,7 @@ const e = [
     name: "Enterspeed QueryPicker",
     alias: "Enterspeed.Umbraco.QueryPicker",
     type: "propertyEditorUi",
-    js: () => import("./enterspeed-query-picker.element-C3MBiCz4.js"),
+    js: () => import("./enterspeed-query-picker.element-CjqTGzV3.js"),
     meta: {
       label: "Enterspeed Query Picker",
       icon: "icon-search",

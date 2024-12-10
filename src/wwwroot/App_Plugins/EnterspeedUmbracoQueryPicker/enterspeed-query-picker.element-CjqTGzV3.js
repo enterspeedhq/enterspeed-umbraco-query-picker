@@ -2,17 +2,17 @@ import { LitElement as g, html as p, css as C, property as y, state as a, custom
 import { UmbPropertyValueChangeEvent as F } from "@umbraco-cms/backoffice/property-editor";
 import { UMB_NOTIFICATION_CONTEXT as V } from "@umbraco-cms/backoffice/notification";
 import { UmbElementMixin as w } from "@umbraco-cms/backoffice/element-api";
-import { UMB_MODAL_MANAGER_CONTEXT as q } from "@umbraco-cms/backoffice/modal";
-var $ = Object.defineProperty, b = Object.getOwnPropertyDescriptor, _ = (e) => {
+import { UMB_MODAL_MANAGER_CONTEXT as $ } from "@umbraco-cms/backoffice/modal";
+var q = Object.defineProperty, b = Object.getOwnPropertyDescriptor, _ = (e) => {
   throw TypeError(e);
 }, r = (e, t, n, o) => {
   for (var s = o > 1 ? void 0 : o ? b(t, n) : t, h = e.length - 1, c; h >= 0; h--)
     (c = e[h]) && (s = (o ? c(t, n, s) : c(s)) || s);
-  return o && s && $(t, n, s), s;
+  return o && s && q(t, n, s), s;
 }, P = (e, t, n) => t.has(e) || _("Cannot " + n), T = (e, t, n) => t.has(e) ? _("Cannot add the same private member more than once") : t instanceof WeakSet ? t.add(e) : t.set(e, n), u = (e, t, n) => (P(e, t, "access private method"), n), l, v, m, f, x, R, d;
 let i = class extends w(g) {
   constructor() {
-    super(), T(this, l), this.value = "", this._enterspeedEnvironmentClient = "", this._enterspeedIndex = "", this._enterspeedQueryField = "", this._enterspeedResultValueField = "", this._enterspeedResultDisplayField = "", this._enterspeedQueryFieldPlaceholderText = "", this._queryValue = "", this._queryResult = [], this.consumeContext(q, (e) => {
+    super(), T(this, l), this.value = "", this._enterspeedEnvironmentClient = "", this._enterspeedIndex = "", this._enterspeedQueryField = "", this._enterspeedResultValueField = "", this._enterspeedResultDisplayField = "", this._enterspeedQueryFieldPlaceholderText = "", this._queryValue = "", this._queryResult = [], this.consumeContext($, (e) => {
       this._modalManagerContext = e;
     }), this.consumeContext(V, (e) => {
       this._notificationContext = e;
@@ -91,8 +91,8 @@ v = function(e) {
     }
   };
   t.filters[this._enterspeedQueryField] = {
-    operator: "equals",
-    value: this._queryValue
+    operator: "contains",
+    value: `*${this._queryValue}*`
   }, (async () => {
     const o = await (await fetch(`https://query.dev.enterspeed.io/v1-preview/${this._enterspeedIndex}`, {
       method: "POST",
@@ -180,4 +180,4 @@ i = r([
 export {
   i as default
 };
-//# sourceMappingURL=enterspeed-query-picker.element-C3MBiCz4.js.map
+//# sourceMappingURL=enterspeed-query-picker.element-CjqTGzV3.js.map
