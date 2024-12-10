@@ -62,10 +62,13 @@ export default class EnterspeedQueryPickerPropertyEditorUIElement extends UmbEle
     @state()
     private _queryResult: Option[] = [];
 
+    @state()
+    private _showResults: boolean = false;
+
     #onQuery(e: InputEvent) {
       this._queryValue = (e.target as HTMLInputElement).value;
 
-      if(this._queryValue === ""){
+      if(this._queryValue === "") {
         this._queryResult = [];
         return;
       }
@@ -105,6 +108,8 @@ export default class EnterspeedQueryPickerPropertyEditorUIElement extends UmbEle
             value: result[this._enterspeedResultValueField]
           }
         })
+
+        this._showResults = true;
       })();
     }
 
@@ -113,6 +118,7 @@ export default class EnterspeedQueryPickerPropertyEditorUIElement extends UmbEle
 
       this._queryValue = "";
       this._queryResult = [];
+      this._showResults = false;
       this.value = result.value;
       this.#dispatchChangeEvent();
     }
@@ -125,7 +131,7 @@ export default class EnterspeedQueryPickerPropertyEditorUIElement extends UmbEle
 
     #onclickOutsideResult(e: Event){   
       if (!document.getElementById('result-wrapper')?.contains(e.target as Node)) {
-        this._queryResult = [];
+        this._showResults = false;
       }
     }
 
@@ -149,7 +155,7 @@ export default class EnterspeedQueryPickerPropertyEditorUIElement extends UmbEle
         >
         </uui-input>
         
-        ${this._queryValue ?
+        ${this._showResults ?
           html`
             <uui-box id="result-wrapper">
             ${this._queryResult.length > 0 ?
@@ -215,8 +221,7 @@ export default class EnterspeedQueryPickerPropertyEditorUIElement extends UmbEle
           cursor: pointer;
         }
         .result:hover {
-          color: #3544b1;
-          /* color: var(--uui-color-interactive-emphasi); */
+          color: var(--uui-color-interactive-emphasis);
         }
       `,
     ];
