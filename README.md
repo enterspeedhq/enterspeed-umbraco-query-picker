@@ -11,4 +11,4 @@ npm run build
 
 Reference the `src/Enterspeed.Umbraco.QueryPicker.csproj` project file from you Umbraco website project.
 
-The Query picker project is now install and you can now run you start your Umbraco website.
+The Query picker project is now installed and you can start your Umbraco website.
