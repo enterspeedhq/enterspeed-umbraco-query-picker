@@ -90,9 +90,12 @@ v = function(e) {
       pageSize: 5
     }
   };
-  t.filters[this._enterspeedQueryField] = {
-    operator: "contains",
-    value: `*${this._queryValue}*`
+  t.filters = {
+    and: [{
+      field: this._enterspeedQueryField,
+      operator: "contains",
+      value: `*${this._queryValue}*`
+    }]
   }, (async () => {
     const a = await (await fetch(`https://query.dev.enterspeed.io/v1-preview/${this._enterspeedIndex}`, {
       method: "POST",
@@ -182,4 +185,4 @@ s = i([
 export {
   s as default
 };
-//# sourceMappingURL=enterspeed-query-picker.element-OfLG1-U6.js.map
+//# sourceMappingURL=enterspeed-query-picker.element-CPRlz9zB.js.map
